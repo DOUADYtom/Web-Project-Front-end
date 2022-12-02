@@ -1,11 +1,11 @@
 # Front end Discover
 
-1. - [ ] Public main page, where some monument are display (air bnb style)
+1. - [x] Public main page, where some monument are display (air bnb style)
 2. - [ ] Public Research page, with some filters (to be determined)
 3. - [ ] Public monument page, display information about the monument and user reviews
 4. - [ ] Public profil menu, login and register when unauthenticate
-5. - [ ] Authentification page
-6. - [ ] Register page
+5. - [x] Authentification page
+6. - [x] Register page
 7. - [ ] Private profil menu, log out, my profile, my momuments, my reviews
 8. - [ ] Private profile page, display personal informations and change password
 9. - [ ] Private my monuments page, display to be visited monuments and already visited monuments

@@ -1,8 +1,22 @@
+import { Routes, Route } from 'react-router-dom'
+import Layout from './components/Layout';
+import LoginPage from './components/LoginPage';
+import MainPage from './components/MainPage';
+import MonumentPage from './components/MonumentPage';
+import RegisterPage from './components/RegisterPage';
+
 function App() {
   return (
-    <div className="App">
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout/>}>
+        <Route index element={<MainPage/>}/>
+        <Route path="/monument" element={<MonumentPage/>}/>
+        <Route path="/login" element={<LoginPage/>}/>
+        <Route path="/register" element={<RegisterPage/>}/>
+        <Route path="/forgot_password" element={<p>RIP</p>}/>
+      </Route>
+    </Routes>
   );
-}
+};
 
 export default App;

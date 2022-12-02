@@ -1,0 +1,94 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Arial';
+}
+
+a{
+    text-decoration: none;
+}
+
+.monument-list{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.monument-list-gradient{
+    height: 410px;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.monument-list-gradient-before{
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 5%;
+    height: 100%;
+    background: linear-gradient(0.25turn, white, rgba(255, 255, 255, 0.001));
+}
+
+.monument-list-gradient-after{
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 5%;
+    height: 100%;
+    background: linear-gradient(0.75turn, white, rgba(255, 255, 255, 0.001));
+}
+
+.monument-list-container{
+    max-width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+}
+
+.monument-list-container::-webkit-scrollbar{
+    display: none;
+}
+
+.monument-list-button{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+}
+
+.monument-list-button:hover{
+    background-color: whitesmoke;
+    opacity: 0.2;
+}
+
+.monument-list-button-icon{
+    font-size: 40px;
+    font-weight: bold;
+    color: #888888;
+    position: relative;
+    bottom: 15px;
+}
+
+.monument-list-button:hover .monument-list-button-icon{
+    color: black;
+    font-size: 44px;
+}
+
+.right{
+    left: 30px;
+}
+
+.left{
+    right: 30px;
+}
