@@ -2,8 +2,11 @@ import '../style/App.css'
 import '../style/Form.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExclamationCircle, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setCredentials } from '../features/auth/AuthSlice';
+import { useLoginMutation } from '../features/auth/AuthApiSlice';
 
 const LoginPage = () => {
 
@@ -12,11 +15,18 @@ const LoginPage = () => {
     const [passwordError, setPasswordError] = useState(false);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const [checkLogin, {isLoading}] = useLoginMutation();
+
+    if (isLoading) {
+        return <p>Loading...</p>
+    }
 
     //eslint-disable-next-line
     const emailExp = new RegExp("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$");
 
-    const login = () => {
+    const login = async () => {
         let emailErrorValue = 0;
         let passwordErrorValue = false;
 
@@ -30,12 +40,18 @@ const LoginPage = () => {
             passwordErrorValue = true;
         }
         if(!passwordErrorValue && !emailErrorValue){
-            //TODO
-            console.log("request send");
+            try{
+                const { accessToken } = await checkLogin({ email, password }).unwrap();
+                dispatch(setCredentials({ accessToken }))
+                navigate("/");
+            } catch (err) {
+                emailErrorValue=3;
+            }
         }
         setEmailError(emailErrorValue);
         setPasswordError(passwordErrorValue);
         setPassword("");
+        
     };
 
     const changeEmail = (e) => {

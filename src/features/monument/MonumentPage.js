@@ -3,11 +3,26 @@ import { faImage, faStar } from '@fortawesome/free-solid-svg-icons'
 import { Link, useSearchParams } from "react-router-dom";
 import "../../style/MonumentPage.css"
 import { useGetMonumentByIdQuery } from "./MonumentApiSlice";
+import useAuth from "../../hooks/useAuth";
 
 const MonumentPage = () => {
 
     const [searchParams] = useSearchParams();
     const monumentId = searchParams.get('id');
+    const {isLogged, id } = useAuth();
+
+    let buttons = <div className="monument-page-title-info-buttonarea"/>
+
+    if (isLogged) {
+        buttons = (<div className="monument-page-title-info-buttonarea">
+            <button className="monument-page-title-info-buttonarea-button to-be-visited">
+                Add to "To be visited"
+            </button>
+            <button className="monument-page-title-info-buttonarea-button visited">
+                Add to "Visited"
+            </button>
+        </div>)
+    }
 
     const {
         data: monument,
@@ -45,9 +60,7 @@ const MonumentPage = () => {
                                 <p>{monument.stats.avgRating.toFixed(2)}, {monument.stats.nbReviews} reviews, {monument.stats.nbViews} views</p>
                             </div>
                         </div>
-                        <div className="monument-page-title-info-buttonarea">
-
-                        </div>
+                        {buttons}
                     </div>
                 </div>
                 <div className="monument-page-images">
@@ -80,7 +93,7 @@ const MonumentPage = () => {
         );
     }
 
-    return content
+    return content;
 };
 
 export default MonumentPage;

@@ -9,6 +9,7 @@
 
 a {
     text-decoration: none;
+    color: #000;
 }
 
 .header {
@@ -48,17 +49,62 @@ a {
     padding: 3px;
     background-color: white;
     border: solid #dddddd 1px;
-    border-radius: 10%;
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
     width: 120px;
     height: 40px;
     font-size: 15px;
     transition: 0.25s;
+    position: relative;
 }
 
 .header-login:hover {
-    width: 132px;
-    height: 44px;
-    margin-right: 19px;
     font-size: 16.5px;
+}
+
+.header-login-text{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-menu{
+    display: none;
+    position: absolute;
+    right: 0px;
+    bottom: -90px;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.header-login:hover .header-menu{
+    display: block;
+}
+
+.header-menu-element{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+}
+
+.header-menu-element button{
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: whitesmoke;
+    font-size: 16px;
+}
+
+.header-menu-element button:hover{
+    background-color: #cccccc;
+}
+
+.header-menu-element:hover{
+    background-color: #cccccc;
 }

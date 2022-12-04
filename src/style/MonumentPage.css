@@ -100,6 +100,29 @@ a{
     align-items: center;
 }
 
+.monument-page-title-info-buttonarea-button{
+    width: 35%;
+    height: 75%;
+    border: none;
+    border-radius: 10px;
+}
+
+.to-be-visited{
+    background-color: #55ffff;
+}
+
+.to-be-visited:hover{
+    background-color: #44eeee;
+}
+
+.visited{
+    background-color: #ff55ff;
+}
+
+.visited:hover{
+    background-color: #ee44ee;
+}
+
 .monument-page-images{
     margin-top: 10px;
     margin-bottom: 10px;
