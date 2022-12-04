@@ -1,0 +1,193 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Arial';
+}
+
+a{
+    text-decoration: none;
+}
+
+.monument-page{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.monument-page-title{
+    height: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.monument-page-title-name{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+    align-items: flex-end;
+}
+
+.monument-page-title-name p{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.monument-page-title-info{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+}
+
+.monument-page-title-info-list{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.monument-page-title-info-location{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+    align-items: flex-end;
+}
+
+.monument-page-title-info-location p{
+    font-size: 16px;
+}
+
+.monument-page-title-info-location .flag{
+    height: 24px;
+    margin-right: 7px;
+    object-fit: cover;
+}
+
+.monument-page-title-info-rating{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+    align-items: flex-end;
+}
+
+.monument-page-title-info-rating p{
+    font-size: 16px;
+}
+
+.monument-page-title-info-rating .icon{
+    width: 16px;
+    height: 16px;
+    margin: 3px;
+}
+
+.monument-page-title-info-buttonarea{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.monument-page-images{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 400px;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 7px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.monument-page-images-main{
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.monument-page-images-other{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.monument-page-images-empty{
+    width: 100%;
+    height: 100%;
+    border: solid 2px #333333;
+}
+
+.monument-page-images-button{
+    position: absolute;
+    padding: 5px;
+    width: fit-content;
+    height: 7.5%;
+    bottom: 15px;
+    right: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.monument-page-images-button p{
+    margin-left: 5px;
+}
+
+.monument-page-images:hover .monument-page-images-button{
+    opacity: 1;
+}
+
+.monument-page-images-button:hover{
+    font-weight: bold;
+}
+
+.monument-page-description{
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.monument-page-description p{
+    font-size: 16px;
+    text-align: justify;
+}
+
+.monument-page-tag{
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+    align-items: flex-end;
+    font-size: 16px;
+}
+
+.monument-page-tag p{
+    margin-right: 20px;
+}
+
+.monument-page-tag a{
+    margin-right: 10px;
+}

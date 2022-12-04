@@ -44,7 +44,7 @@ const Monument = ({monument}) => {
                     <p className="monument-element-informations-note-p">{monument.stats.avgRating.toFixed(2)}</p>
                 </div>
                 <div className="monument-element-informations-flag">
-                    <img className="monument-element-informations-flag-img" alt="" src={`https://www.countryflagicons.com/FLAT/64/${monument.countryCode}.png`}></img>
+                    <img className="monument-element-informations-flag-img" alt="" src={`https://www.countryflagicons.com/FLAT/64/${monument.countryCode}.png`}/>
                 </div>
                 <div className="monument-element-informations-location">
                     <p className="monument-element-informations-location-p">{monument.country}, {monument.city}</p>

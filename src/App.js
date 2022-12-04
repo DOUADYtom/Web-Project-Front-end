@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout';
 import LoginPage from './components/LoginPage';
 import MainPage from './components/MainPage';
-import MonumentPage from './components/MonumentPage';
+import MonumentPage from './features/monument/MonumentPage';
 import RegisterPage from './components/RegisterPage';
 
 function App() {
