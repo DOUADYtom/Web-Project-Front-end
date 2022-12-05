@@ -1,24 +1,36 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faImage, faStar } from '@fortawesome/free-solid-svg-icons'
+import { faImage, faStar } from '@fortawesome/free-solid-svg-icons';
 import { Link, useSearchParams } from "react-router-dom";
 import "../../style/MonumentPage.css"
 import { useGetMonumentByIdQuery } from "./MonumentApiSlice";
 import useAuth from "../../hooks/useAuth";
+import { useAddToBeVisitedMonumentMutation, useAddVisitedMonumentMutation } from "../user/UserApiSlice";
 
 const MonumentPage = () => {
 
     const [searchParams] = useSearchParams();
     const monumentId = searchParams.get('id');
     const {isLogged, id } = useAuth();
+    const [sendAddToBeVisited] = useAddToBeVisitedMonumentMutation();
+    const [sendAddVisited] = useAddVisitedMonumentMutation();
+
+    const addToBeVisited = () => {
+        console.log("ok");
+        sendAddToBeVisited({userId: id, monumentId});
+    }
+
+    const addVisited = () => {
+        sendAddVisited({userId: id, monumentId});
+    }
 
     let buttons = <div className="monument-page-title-info-buttonarea"/>
 
     if (isLogged) {
         buttons = (<div className="monument-page-title-info-buttonarea">
-            <button className="monument-page-title-info-buttonarea-button to-be-visited">
+            <button className="monument-page-title-info-buttonarea-button to-be-visited" onClick={() => addToBeVisited()}>
                 Add to "To be visited"
             </button>
-            <button className="monument-page-title-info-buttonarea-button visited">
+            <button className="monument-page-title-info-buttonarea-button visited" onClick={() => addVisited()}>
                 Add to "Visited"
             </button>
         </div>)

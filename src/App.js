@@ -3,8 +3,8 @@ import Layout from './components/Layout';
 import LoginPage from './components/LoginPage';
 import MainPage from './components/MainPage';
 import MonumentPage from './features/monument/MonumentPage';
-import SearchMonument from './features/monument/SearchMonument';
 import RegisterPage from './components/RegisterPage';
+import MyPage from './features/user/MyPage';
 
 function App() {
   return (
@@ -15,7 +15,8 @@ function App() {
         <Route path="/login" element={<LoginPage/>}/>
         <Route path="/register" element={<RegisterPage/>}/>
         <Route path="/forgot_password" element={<p>RIP</p>}/>
-        <Route path="/search" element={<SearchMonument/>}/>
+        <Route path="/search" element={<p>Search</p>}/>
+        <Route path="/mypage" element={<MyPage/>}/>
       </Route>
     </Routes>
   );

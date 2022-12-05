@@ -3,6 +3,8 @@ import '../style/Form.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExclamationCircle, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react';
+import { useAddNewUserMutation } from '../features/user/UserApiSlice';
+import { useNavigate } from 'react-router-dom';
 
 const RegisterPage = () => {
 
@@ -13,6 +15,8 @@ const RegisterPage = () => {
     const [seePassword, setSeePassword] = useState(false);
     const [password, setPassword] = useState("");
     const [passwordError, setPasswordError] = useState(0);
+    const [sendUser] = useAddNewUserMutation();
+    const naviagte = useNavigate();
     
     //eslint-disable-next-line
     const emailExp = new RegExp("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$");
@@ -36,6 +40,15 @@ const RegisterPage = () => {
             setPasswordError(0);
         }
         setPassword(e.target.value);
+    }
+
+    const register = () => {
+        try{
+            sendUser({username:name, email, password});
+            naviagte("/login");
+        } catch(err){
+            setNameError(1);
+        }
     }
 
     return (
@@ -99,7 +112,7 @@ const RegisterPage = () => {
                     {passwordError?<p className="form-input-text-incorrect">Password cannot be empty</p>:<></>}
                 </div>
 
-                <button className="form-button" onClick={()=>{}} tabIndex="4">Create account</button>
+                <button className="form-button" onClick={()=> register()} tabIndex="4">Create account</button>
             </div>
         </div>
     </div>
